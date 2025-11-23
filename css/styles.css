@@ -1,0 +1,262 @@
+/* 
+ * styles.css
+ * Estilos modernos para la página de Agentes de IA
+ * Diseño Dark Mode, Responsive y Minimalista
+ */
+
+:root {
+    /* Paleta de colores - Dark Theme */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #38bdf8; /* Sky Blue */
+    --accent-hover: #0ea5e9;
+    --card-border: #334155;
+    
+    /* Gradientes para efectos */
+    --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --gradient-card: linear-gradient(145deg, #1e293b, #0f172a);
+    
+    /* Espaciado y Layout */
+    --container-width: 1200px;
+    --header-height: 70px;
+    --border-radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Tipografía --- */
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 3.5rem; letter-spacing: -0.02em; }
+h2 { font-size: 2.5rem; color: var(--accent-color); }
+h3 { font-size: 1.5rem; }
+
+p { margin-bottom: 1rem; color: var(--text-secondary); }
+
+a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+a:hover { color: var(--accent-color); }
+
+/* --- Layout Utilities --- */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+/* --- Header & Nav --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--card-border);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(to right, var(--accent-color), #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at top center, #1e293b 0%, #0f172a 70%);
+    padding-top: var(--header-height);
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: fadeIn Up 1s ease-out;
+}
+
+.hero h1 span {
+    display: block;
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: var(--accent-color);
+    color: #0f172a;
+    font-weight: 600;
+    border-radius: 50px;
+    margin-top: 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+    background: var(--accent-hover);
+}
+
+/* --- Agents Grid --- */
+.agents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.agent-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--card-border);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.agent-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+
+.agent-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--accent-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.agent-card:hover::before {
+    transform: scaleX(1);
+}
+
+.agent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.agent-details {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--card-border);
+}
+
+.code-snippet {
+    background: #000;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: #a5b4fc;
+    margin-top: 1rem;
+    overflow-x: auto;
+}
+
+/* --- Footer --- */
+footer {
+    background: var(--bg-secondary);
+    padding: 3rem 0;
+    text-align: center;
+    border-top: 1px solid var(--card-border);
+    margin-top: 4rem;
+}
+
+.footer-content p {
+    font-size: 0.9rem;
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .nav-links { display: none; } /* Simplificación para mobile */
+    .agents-grid { grid-template-columns: 1fr; }
+}
