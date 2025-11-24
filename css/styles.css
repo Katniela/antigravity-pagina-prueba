@@ -260,3 +260,82 @@ footer {
     .nav-links { display: none; } /* Simplificación para mobile */
     .agents-grid { grid-template-columns: 1fr; }
 }
+
+/* --- Comparativa --- */
+.comparativa {
+    padding: 80px 0;
+    background: #0d0f12; /* Fondo oscuro tipo dashboard */
+    color: #d4d7dd;
+}
+
+.comparativa h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.8rem;
+    color: #39aaff; /* Azul neón como en la imagen */
+    font-weight: 700;
+}
+
+/* Contenedor con scroll si es necesario */
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 40px;
+}
+
+/* Tabla transformada a estilo "cards" */
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: transparent; /* No fondo, cada celda se verá como card */
+}
+
+/* Encabezado */
+.comparison-table th {
+    background: #111319;
+    color: #7dd3fc; /* Cian suave */
+    padding: 18px;
+    text-align: left;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #1f242d;
+}
+
+/* Celdas */
+.comparison-table td {
+    padding: 20px;
+    background: #161a22; /* Fondo tarjeta */
+    border-bottom: 1px solid #1f242d;
+    border-left: 1px solid #1f242d;
+}
+
+/* Primera columna como título */
+.comparison-table td:first-child {
+    font-weight: 700;
+    color: #e8ecf2;
+}
+
+/* Filas */
+.comparison-table tr:nth-child(even) td {
+    background: #1b1f27;
+}
+
+/* Hover efecto */
+.comparison-table tr:hover td {
+    background: #212733;
+    transition: 0.25s;
+}
+
+/* Bordes redondeados a la tabla completa */
+.comparison-table tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+}
+.comparison-table tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+}
+.comparison-table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+.comparison-table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
